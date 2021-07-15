@@ -1,10 +1,10 @@
-
 part of 'home_cubit.dart';
 
 class HomeState extends BaseState{
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [homeTitle];
 
-  HomeState();
+  String homeTitle;
 
+  HomeState(this.homeTitle);
 }

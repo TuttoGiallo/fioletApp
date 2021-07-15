@@ -15,20 +15,20 @@ class _Main {
 
   const _Main._();
 
-  Color get darker => Color(0x46351D);
-  Color get mediumDark => Color(0x202C59);
-  Color get medium => Color(0x5386E4);
-  Color get mediumClear => Color(0xF5D547);
-  Color get clearer => Color(0xFFD9DA);
+  Color get darker => Color(0xFF46351D);
+  Color get mediumDark => Color(0xFF202C59);
+  Color get medium => Color(0xFF5386E4);
+  Color get mediumClear => Color(0xFFF5D547);
+  Color get clearer => Color(0xFFFFD9DA);
 }
 
 class _Background {
 
   const _Background._();
 
-  Color get dark => Color(0xFAF3DD);
-  Color get medium => Color(0xEDFFEC);
-  Color get clear => Color(0x8D909B);
+  Color get medium => Color(0xFFFAF3DD);
+  Color get clear => Color(0xFFEDFFEC);
+  Color get dark => Color(0xFF8D909B);
 }
 
 class _AccentColors {
