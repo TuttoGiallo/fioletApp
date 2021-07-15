@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:fiolet/feature/core/base_cubit.dart';
+import 'package:fiolet/router/fiolet_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,5 +18,7 @@ class HomeCubit extends BaseCubit<HomeState> {
     hideLoader();
     emit(HomeState('RandomTitle $rand'));
   }
+
+  navigateToPlayers() { router.pushNamed(FioletRoutes.players); }
 
 }

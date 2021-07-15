@@ -15,8 +15,6 @@ class SplashCubit extends BaseCubit {
     MokService mokService = di.injector.get<MokService>();
     await mokService.loadRes();
 
-    Future.delayed(Duration(seconds: 1));
-
     router.pushAndReplaceNamed(FioletRoutes.home);
   }
 }

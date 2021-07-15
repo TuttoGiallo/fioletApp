@@ -54,7 +54,7 @@ class FioletThemeData {
       headline6: TextStyle(fontWeight: FontWeight.w500, color: Colors.blue),
       caption: TextStyle(
           fontWeight: FontWeight.w400, fontSize: 14.0, color: Colors.green),
-      bodyText2: TextStyle(fontSize: 12, color: Colors.yellow),
+      bodyText2: TextStyle(fontSize: 18, color: Colors.yellow),
       bodyText1: TextStyle(fontSize: 22, color: Colors.orange),
       button: TextStyle(fontSize: 18, color: Colors.red ),
     );
