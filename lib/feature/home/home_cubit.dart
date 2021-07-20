@@ -20,5 +20,6 @@ class HomeCubit extends BaseCubit<HomeState> {
   }
 
   navigateToPlayers() { router.pushNamed(FioletRoutes.players); }
+  navigateToTeams() { router.pushNamed(FioletRoutes.teams); }
 
 }

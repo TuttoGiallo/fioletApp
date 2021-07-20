@@ -29,6 +29,16 @@ class HomeScreen extends StatelessWidget {
             Center(
               child: ElevatedButton(
                 onPressed: () =>
+                    BlocProvider.of<HomeCubit>(context).navigateToTeams(),
+                child: Text(
+                  'Teams',
+                  style: Theme.of(context).textTheme.button,
+                ),
+              ),
+            ),
+            Center(
+              child: ElevatedButton(
+                onPressed: () =>
                     BlocProvider.of<HomeCubit>(context).navigateToPlayers(),
                 child: Text(
                   'Players',

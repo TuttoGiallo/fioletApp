@@ -1,21 +1,25 @@
 import 'package:fiolet/feature/model/season.dart';
 
-class Player extends PlayerBase {
-  Player(
-      String name, String surname, this.team, this.average, this.currentSeason)
-      : super(name, surname);
+class PlayerInSeason {
+  PlayerInSeason(
+      this.player, this.team, this._average, this.currentSeason);
 
+  Player player;
   String team;
-  double average;
+  double _average;
   Season currentSeason;
+
+  double get average => _average < 3 ? 3 : double.parse(_average.toStringAsFixed(2));
+  set average(double average) => _average = average;
+
+  String get name => this.player.name;
+  String get surname => this.player.surname;
 }
 
-class PlayerBase {
-  @override
-  List<Object?> get props => [name, surname];
+class Player {
 
   final String name;
   final String surname;
 
-  PlayerBase(this.name, this.surname);
+  Player(this.name, this.surname);
 }

@@ -1,9 +1,12 @@
 import 'package:fiolet/feature/home/home_cubit.dart';
+import 'package:fiolet/feature/model/player.dart';
+import 'package:fiolet/feature/model/team.dart';
 import 'package:fiolet/feature/player/player_cubit.dart';
 import 'package:fiolet/feature/players/players_cubit.dart';
 import 'package:fiolet/feature/splash/splash_cubit.dart';
+import 'package:fiolet/feature/team/team_cubit.dart';
+import 'package:fiolet/feature/teams/teams_cubit.dart';
 import 'package:fiolet/router/fiolet_routes.dart';
-import 'package:fiolet/utils/stub_objects.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,7 +47,7 @@ class FioletRouter extends BaseRouter {
         return buildRoute(
             settings,
             BlocProvider(
-                create: (_) => PlayerCubit(StubObjects.stubPlayerState2021),
+                create: (_) => PlayerCubit(settings.arguments as PlayerInSeason),
                 child: PlayerScreen()));
       case FioletRoutes.players:
         return buildRoute(
@@ -52,6 +55,18 @@ class FioletRouter extends BaseRouter {
             BlocProvider(
                 create: (_) => PlayersCubit(),
                 child: PlayersScreen()));
+      case FioletRoutes.team:
+        return buildRoute(
+            settings,
+            BlocProvider(
+                create: (_) => TeamCubit(settings.arguments as Team),
+                child: TeamScreen()));
+      case FioletRoutes.teams:
+        return buildRoute(
+            settings,
+            BlocProvider(
+                create: (_) => TeamsCubit(),
+                child: TeamsScreen()));
 
       default:
         throw PlatformException(code: '404 - Route not found');

@@ -2,10 +2,10 @@ part of 'player_cubit.dart';
 
 class PlayerState  extends BaseState{
   @override
-  List<Object?> get props => [player.name, player.surname, player.currentSeason];
+  List<Object?> get props => [playerInSeason.name, playerInSeason.surname, playerInSeason.currentSeason];
 
-  Player player;
+  final PlayerInSeason playerInSeason;
 
-  PlayerState(this.player);
+  PlayerState(this.playerInSeason);
 }
 

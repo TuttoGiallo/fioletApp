@@ -6,4 +6,6 @@ class FioletRoutes {
   static const String home = '/home';
   static const String player = '/player';
   static const String players = '/players';
+  static const String team = '/team';
+  static const String teams = '/teams';
 }
