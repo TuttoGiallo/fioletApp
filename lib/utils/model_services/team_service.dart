@@ -16,8 +16,6 @@ class TeamService {
   }
 
   List<Team> getAllTeamInASeason(Season season) {
-    print('getAllTamInSeason: $season}');
-    print('allTeams lenght: ${allTeams.length}');
     return allTeams.where((team) => team.season == season).toList();
   }
 }

@@ -14,7 +14,7 @@ class StubObjects {
 
   static List<Season> stubSeasons = [season2019au, season2020sp, season2020au, season2021sp];
 
-  static List<Player> generatePlayerStub({int number = 24}) {
+  static List<Player> generatePlayerStub({int number = 216}) {
     List<Player> players = [];
     for (int i = 0; i < number; i++) {
       players.add(Player('StubPlayerName#$i', 'StubPlayerSurname#$i'));
