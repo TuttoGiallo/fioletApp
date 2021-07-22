@@ -3,7 +3,6 @@ part of 'player_cubit.dart';
 class PlayerScreen extends StatelessWidget {
   const PlayerScreen({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,9 +25,11 @@ class PlayerScreen extends StatelessWidget {
                       Text(state.playerInSeason.name),
                       Text(state.playerInSeason.surname),
                       Text('${state.playerInSeason.currentSeason}'),
-                      Text(state.playerInSeason.team),
-                      Text(
-                          '${state.playerInSeason.average}'),
+                      Text('${state.playerInSeason.average}'),
+                      TeamCard(
+                          (team) =>
+                              context.read<PlayerCubit>().navigateToTeam(team),
+                          state.playerInSeason.team),
                     ],
                   );
                 },

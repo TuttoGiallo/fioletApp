@@ -14,13 +14,13 @@ class Team {
     players = [];
   }
 
-  Team.withPlayer(this.name, this.players, this.season, this.section);
-
   void addPlayer(PlayerInSeason player) {
     this.players.add(player);
+    player.team = this;
   }
 
   void addPlayers(List<PlayerInSeason> players) {
     this.players.addAll(players);
+    players.forEach((player) => player.team = this);
   }
 }

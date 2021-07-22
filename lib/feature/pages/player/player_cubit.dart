@@ -1,7 +1,10 @@
 import 'package:fiolet/feature/core/base_cubit.dart';
 import 'package:fiolet/feature/model/player.dart';
 import 'package:fiolet/feature/model/season.dart';
+import 'package:fiolet/feature/model/team.dart';
 import 'package:fiolet/graphic_app_components/widget/season_drop_down.dart';
+import 'package:fiolet/graphic_app_components/widget/team_cart.dart';
+import 'package:fiolet/router/fiolet_routes.dart';
 import 'package:fiolet/utils/get_it_injector.dart';
 import 'package:fiolet/utils/model_services/player_service.dart';
 import 'package:fiolet/utils/stub_objects.dart';
@@ -22,5 +25,8 @@ class PlayerCubit extends BaseCubit<PlayerState> {
     emit(PlayerState(_playerService.getPlayerInSeason(state.playerInSeason.player, newSeason!)));
   }
 
+  navigateToTeam(Team team) {
+    router.pushNamed(FioletRoutes.team, team);
+  }
 
 }

@@ -1,11 +1,11 @@
-import 'package:fiolet/feature/home/home_cubit.dart';
+import 'package:fiolet/feature/pages/home/home_cubit.dart';
 import 'package:fiolet/feature/model/player.dart';
 import 'package:fiolet/feature/model/team.dart';
-import 'package:fiolet/feature/player/player_cubit.dart';
-import 'package:fiolet/feature/players/players_cubit.dart';
-import 'package:fiolet/feature/splash/splash_cubit.dart';
-import 'package:fiolet/feature/team/team_cubit.dart';
-import 'package:fiolet/feature/teams/teams_cubit.dart';
+import 'package:fiolet/feature/pages/player/player_cubit.dart';
+import 'package:fiolet/feature/pages/players/players_cubit.dart';
+import 'package:fiolet/feature/pages/splash/splash_cubit.dart';
+import 'package:fiolet/feature/pages/team/team_cubit.dart';
+import 'package:fiolet/feature/pages/teams/teams_cubit.dart';
 import 'package:fiolet/router/fiolet_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

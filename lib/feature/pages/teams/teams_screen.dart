@@ -29,24 +29,9 @@ class TeamsScreen extends StatelessWidget {
                   builder: (context, state) {
                     return Column(
                       children: state.filteredTeams
-                          .map<Widget>(
-                            (team) => Card(
-                              child: Column(
-                                children: [
-                                  ListTile(
-                                    title: Text(team.name),
-                                    subtitle: Text(
-                                        '${team.season.year} - ${team.season.seasonInYear}'),
-                                  ),
-                                  ElevatedButton(
-                                      onPressed: () => context
-                                          .read<TeamsCubit>()
-                                          .navigateToPlayer(team),
-                                      child: Text('SHOW')),
-                                ],
-                              ),
-                            ),
-                          )
+                          .map<Widget>((team) => TeamCard(
+                          (team) => context.read<TeamsCubit>().navigateToTeam(team),
+                              team))
                           .toList(),
                     );
                   },

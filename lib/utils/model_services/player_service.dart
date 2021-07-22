@@ -2,8 +2,10 @@ import 'package:fiolet/feature/model/player.dart';
 import 'package:fiolet/feature/model/season.dart';
 import 'package:fiolet/utils/stub_objects.dart';
 
-class PlayerService{
+class PlayerService {
   Map<Player, Map<Season, PlayerInSeason>> playersMap = {};
+  Map<Season, List<PlayerInSeason>> seasonPlayersMap = {};
+  List<PlayerInSeason> allPlayersInAllSeason = [];
 
   PlayerService._();
 
@@ -12,16 +14,20 @@ class PlayerService{
   }
 
   Future<void> loadRes() async {
-    //intMap
+    //int Maps and List
     StubObjects.allStubPlayers.forEach((player) {
       playersMap[player] = {};
     });
+
+    StubObjects.stubSeasons.forEach((season) => seasonPlayersMap[season] = []);
 
     for (Season season in StubObjects.stubSeasons) {
       for (PlayerInSeason playerInSeason
           in StubObjects.allStubPlayersInSeason) {
         if (playerInSeason.currentSeason == season) {
+          allPlayersInAllSeason.add(playerInSeason);
           playersMap[playerInSeason.player]![season] = playerInSeason;
+          seasonPlayersMap[season]!.add(playerInSeason);
         }
       }
     }
@@ -29,18 +35,8 @@ class PlayerService{
 
   List<Player> get allPlayer => playersMap.keys.toList();
 
-  List<PlayerInSeason> get allPlayersInAllSeason {
-    List<PlayerInSeason> playersInSeason = [];
-    for (var mapSeasonPlayer in playersMap.values) {
-      playersInSeason.addAll(mapSeasonPlayer.values);
-    }
-    return playersInSeason;
-  }
-
   List<PlayerInSeason> getAllPlayerInASeason(Season season) {
-    return allPlayersInAllSeason
-        .where((player) => player.currentSeason == season)
-        .toList();
+    return seasonPlayersMap[season]!;
   }
 
   PlayerInSeason getPlayerInSeason(Player player, Season season) {

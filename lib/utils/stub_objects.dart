@@ -12,9 +12,14 @@ class StubObjects {
   static Season season2020au = Season(2020, 'autumn');
   static Season season2021sp = Season(2021, 'spring');
 
-  static List<Season> stubSeasons = [season2019au, season2020sp, season2020au, season2021sp];
+  static List<Season> stubSeasons = [
+    season2019au,
+    season2020sp,
+    season2020au,
+    season2021sp
+  ];
 
-  static List<Player> generatePlayerStub({int number = 216}) {
+  static List<Player> generatePlayerStub({int number = 6}) {
     List<Player> players = [];
     for (int i = 0; i < number; i++) {
       players.add(Player('StubPlayerName#$i', 'StubPlayerSurname#$i'));
@@ -28,8 +33,8 @@ class StubObjects {
     List<PlayerInSeason> playersInS = [];
     for (Season season in stubSeasons) {
       for (Player player in allStubPlayers) {
-        playersInS.add(PlayerInSeason(
-            player, 'teamName', Random().nextDouble() * 11, season));
+        playersInS
+            .add(PlayerInSeason(player, Random().nextDouble() * 11, season));
       }
     }
     return playersInS;
@@ -48,14 +53,13 @@ class StubObjects {
     for (Season season in stubSeasons) {
       for (int i = 0; i < numberOfTeam; i++) {
         List<Player> subPlayer = allStubPlayers.sublist(i * 6, (i + 1) * 6);
-        genTeams.add(Team.withPlayer(
-            'team$i',
+        genTeams.add(Team('team$i', season, Section('section$i'))
+          ..addPlayers(
             subPlayer
                 .map(
                     (player) => playerService.getPlayerInSeason(player, season))
                 .toList(),
-            season,
-            Section('section$i')));
+          ));
       }
     }
     return genTeams;
