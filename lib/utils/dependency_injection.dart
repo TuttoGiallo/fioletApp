@@ -1,5 +1,6 @@
 import 'package:fiolet/router/base_router.dart';
 import 'package:fiolet/router/fiolet_router.dart';
+import 'package:fiolet/utils/model_services/match_service.dart';
 import 'package:fiolet/utils/model_services/player_service.dart';
 import 'package:flutter/material.dart';
 import 'get_it_injector.dart';
@@ -18,4 +19,6 @@ Future createAndRegisterInjectedServices() async {
   injector.registerLazySingleton<PlayerService>(() => PlayerService.createForGetItRegistration());
 
   injector.registerLazySingleton<TeamService>(() => TeamService.createForGetItRegistration());
+
+  injector.registerLazySingleton<MatchService>(() => MatchService.createForGetItRegistration());
 }

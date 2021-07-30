@@ -45,6 +45,16 @@ class HomeScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.button,
                 ),
               ),
+            ),
+            Center(
+              child: ElevatedButton(
+                onPressed: () =>
+                    BlocProvider.of<HomeCubit>(context).navigateToMatches(),
+                child: Text(
+                  'Matches',
+                  style: Theme.of(context).textTheme.button,
+                ),
+              ),
             )
           ],
         ),

@@ -3,6 +3,7 @@ import 'package:fiolet/feature/model/player.dart';
 import 'package:fiolet/feature/model/season.dart';
 import 'package:fiolet/feature/model/section.dart';
 import 'package:fiolet/feature/model/team.dart';
+import 'package:fiolet/feature/model/match.dart';
 import 'package:fiolet/utils/get_it_injector.dart';
 import 'package:fiolet/utils/model_services/player_service.dart';
 
@@ -19,7 +20,7 @@ class StubObjects {
     season2021sp
   ];
 
-  static List<Player> generatePlayerStub({int number = 6}) {
+  static List<Player> _generatePlayerStub({int number = 12}) {
     List<Player> players = [];
     for (int i = 0; i < number; i++) {
       players.add(Player('StubPlayerName#$i', 'StubPlayerSurname#$i'));
@@ -27,9 +28,9 @@ class StubObjects {
     return players;
   }
 
-  static List<Player> allStubPlayers = generatePlayerStub();
+  static List<Player> allStubPlayers = _generatePlayerStub();
 
-  static List<PlayerInSeason> generatePlayersInSeasonStub() {
+  static List<PlayerInSeason> _generatePlayersInSeasonStub() {
     List<PlayerInSeason> playersInS = [];
     for (Season season in stubSeasons) {
       for (Player player in allStubPlayers) {
@@ -41,11 +42,11 @@ class StubObjects {
   }
 
   static List<PlayerInSeason> allStubPlayersInSeason =
-      generatePlayersInSeasonStub();
+      _generatePlayersInSeasonStub();
 
-  static List<Team> allStubTeams = generateTeams();
+  static List<Team> allStubTeams = _generateTeams();
 
-  static List<Team> generateTeams() {
+  static List<Team> _generateTeams() {
     PlayerService playerService = injector.get<PlayerService>();
 
     int numberOfTeam = (allStubPlayers.length / 6).truncate();
@@ -63,5 +64,38 @@ class StubObjects {
       }
     }
     return genTeams;
+  }
+
+  static List<Match> allStubMatches = _generateMatch();
+
+  static List<Match> _generateMatch() {
+    
+    allStubTeams.forEach((team) {print('${team.name}, ${team.season}');});
+    
+    print('${allStubTeams
+        .where((team) => team.season == season2021sp)
+        .elementAt(0).name}');
+    print('${allStubTeams
+        .where((team) => team.season == season2021sp)
+        .elementAt(1).name}');
+
+    return [
+      Match(
+          allStubTeams
+              .where((team) => team.season == season2021sp)
+              .elementAt(0),
+          allStubTeams
+              .where((team) => team.season == season2021sp)
+              .elementAt(1),
+          season2021sp, DateTime.utc(2021, 05, 9)),
+      Match(
+          allStubTeams
+              .where((team) => team.season == season2021sp)
+              .elementAt(1),
+          allStubTeams
+              .where((team) => team.season == season2021sp)
+              .elementAt(0),
+          season2021sp, DateTime.utc(2021, 06, 21)),
+    ];
   }
 }

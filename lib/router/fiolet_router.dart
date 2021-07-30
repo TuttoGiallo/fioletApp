@@ -1,6 +1,9 @@
+import 'package:fiolet/feature/model/match.dart';
 import 'package:fiolet/feature/pages/home/home_cubit.dart';
 import 'package:fiolet/feature/model/player.dart';
 import 'package:fiolet/feature/model/team.dart';
+import 'package:fiolet/feature/pages/match/match_cubit.dart';
+import 'package:fiolet/feature/pages/matches/matches_cubit.dart';
 import 'package:fiolet/feature/pages/player/player_cubit.dart';
 import 'package:fiolet/feature/pages/players/players_cubit.dart';
 import 'package:fiolet/feature/pages/splash/splash_cubit.dart';
@@ -67,6 +70,18 @@ class FioletRouter extends BaseRouter {
             BlocProvider(
                 create: (_) => TeamsCubit(),
                 child: TeamsScreen()));
+      case FioletRoutes.match:
+        return buildRoute(
+            settings,
+            BlocProvider(
+                create: (_) => MatchCubit(settings.arguments as Match),
+                child: MatchScreen()));
+      case FioletRoutes.matches:
+        return buildRoute(
+            settings,
+            BlocProvider(
+                create: (_) => MatchesCubit(),
+                child: MatchesScreen()));
 
       default:
         throw PlatformException(code: '404 - Route not found');

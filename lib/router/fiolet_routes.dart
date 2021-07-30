@@ -8,4 +8,6 @@ class FioletRoutes {
   static const String players = '/players';
   static const String team = '/team';
   static const String teams = '/teams';
+  static const String match = '/match';
+  static const String matches = '/matches';
 }

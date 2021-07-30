@@ -6,7 +6,7 @@ import 'package:fiolet/graphic_app_components/widget/season_drop_down.dart';
 import 'package:fiolet/router/fiolet_routes.dart';
 import 'package:fiolet/utils/get_it_injector.dart';
 import 'package:fiolet/utils/model_services/player_service.dart';
-import 'package:fiolet/utils/model_services/players_filter.dart';
+import 'package:fiolet/graphic_app_components/widget/players_filter.dart';
 import 'package:fiolet/utils/stub_objects.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

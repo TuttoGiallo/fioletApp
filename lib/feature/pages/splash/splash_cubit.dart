@@ -1,6 +1,7 @@
 import 'package:fiolet/feature/core/base_cubit.dart';
 import 'package:fiolet/router/fiolet_routes.dart';
 import 'package:fiolet/utils/get_it_injector.dart' as di;
+import 'package:fiolet/utils/model_services/match_service.dart';
 import 'package:fiolet/utils/model_services/player_service.dart';
 import 'package:fiolet/utils/model_services/team_service.dart';
 import 'package:fiolet/utils/mok_services/mok_db_service.dart';
@@ -22,6 +23,9 @@ class SplashCubit extends BaseCubit {
 
     TeamService teamService = di.injector.get<TeamService>();
     await teamService.loadRes();
+
+    MatchService matchService = di.injector.get<MatchService>();
+    await matchService.loadRes();
 
     router.pushAndReplaceNamed(FioletRoutes.home);
   }
